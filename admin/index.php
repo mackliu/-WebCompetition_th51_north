@@ -40,7 +40,8 @@ if(!isset($_SESSION['login'])){
     </div>
     <div>
         <div class="container">
-            <button id="addQuiz" class="btn btn-primary">新增問卷</button>
+            <button id="addQuiz" class="btn btn-primary m-3">新增問卷</button>
+            <button id="addQuiz" class="btn btn-primary m-3" onclick="location.href='quiz_list.php'">問卷統計</button>
 
 
 
@@ -55,7 +56,7 @@ if(!isset($_SESSION['login'])){
                     </label>
                     <label for="num" class="row">
                         <span class='col-4 text-right'>題目數：</span>
-                        <input class='col-8' type="number" name="num" id="num">
+                        <input class='col-8' type="number" name="qt" id="qt">
                     </label>
                     <div class="text-center p-3">
                         <input type="submit" value="確定">
