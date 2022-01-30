@@ -49,6 +49,28 @@
             </ul>
         </div>
     </div>
+
+<div class="modal fade" id="LogModal" tabindex="-1" role="dialog" aria-labelledby="LogModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="LogModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height:500px;overflow:auto">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.js"></script>
 </body>
@@ -75,6 +97,16 @@ $(".output-quiz").on('click',(e)=>{
           {id:$(e.target).parent().data('id')},
           (res)=>{
               alert("已輸出問卷完成")
+          })
+})
+
+//查詢問卷功能
+$(".detail-quiz").on("click",(e)=>{
+    $.get("api/get_log_list.php",
+          {id:$(e.target).parent().data("id")},
+          (list)=>{
+              $("#LogModal .modal-body").html(list)
+              $("#LogModal").modal("show");
           })
 })
 </script>
