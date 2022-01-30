@@ -60,7 +60,7 @@ if(!isset($_SESSION['login'])){
                     </label>
                     <div class="text-center p-3">
                         <input type="submit" value="確定">
-                        <input type="reset" value="重置">
+                        <input type="button" value="取消" onclick="cancel()">
                     </div>
                 </form>
             </div>
@@ -78,6 +78,11 @@ $("#addQuiz").on("click",()=>{
     $("#modal").removeClass("d-none");
     $("#modal").addClass("d-flex");
 })
+
+function cancel(){
+    $("#modal").removeClass("d-flex");
+    $("#modal").addClass("d-none");
+}
 
 
 </script>

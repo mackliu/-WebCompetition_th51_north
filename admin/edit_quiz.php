@@ -187,7 +187,9 @@ $(".type-items").on("click", function() {
             options = `
                 <label class='col-2'>題目選項</label>
                 <div class="col-8">
-                    <label class="d-block"><input class="w-75" type="text" disabled placeholder="回答填寫於此"></label>  
+                    <label class="d-block">
+                        <input class="w-75" type="text" disabled placeholder="回答填寫於此">
+                    </label>  
                 </div> `
             $(this).parents('section').siblings(".options").html(options);
             break;

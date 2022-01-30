@@ -36,7 +36,10 @@ $_SESSION['id']=$id;
             $_SESSION['p']=$now;
             $start=($now-1)*$div;
             $rows=array_slice($subjects,$start,$div);
-
+            $_SESSION['seqs']=[];
+            for($i=0;$i<$div;$i++){
+                $_SESSION['seqs'][]=$start+1+$i;
+            }
             $progess=round(($now-1)/$pages,2)*100;
         ?>
             <div class="position-relative border rounded w-100 my-2 text-center font-weight-bolder" 
@@ -71,6 +74,7 @@ $_SESSION['id']=$id;
                                 ?>
                                     <label class='mr-4'><input type="radio" name="ans[<?=$sub['seq'];?>]" value="1">是</label>
                                     <label><input type="radio" name="ans[<?=$sub['seq'];?>]" value="0">否</label>
+                                    
                                 <?php
                                 break;
                                 case "single":
@@ -80,6 +84,7 @@ $_SESSION['id']=$id;
                                         <input type="radio" name="ans[<?=$sub['seq'];?>]" value="<?=$k;?>">
                                         <?=$opt;?>
                                     </label>
+                                    
                                 <?php
                                     }
                                 break;
@@ -90,6 +95,7 @@ $_SESSION['id']=$id;
                                         <input type="checkbox" name="ans[<?=$sub['seq'];?>][]" value="<?=$k;?>">
                                         <?=$opt;?>
                                     </label>
+                                   
                                 <?php
                                     }
     
