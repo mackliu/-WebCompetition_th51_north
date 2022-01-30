@@ -29,13 +29,13 @@ $qt=$_POST['qt'];
                 <input type="radio" name="inv_type" value="sigle" checked>單組 <input type="radio" name="codetype" value="many">多組
             </div>
             <div>
-                問卷份數:<input type="number" name='qt' value="<?=$qt;?>">
+                問卷份數:<input type="number" name='qt' value="1">
             </div>
             <div>
                 問卷鎖定:<input type="checkbox" name='locked' >
             </div>
             <div>
-                問卷分頁:每頁顯示<input type="number" name='paginate'>題
+                問卷分頁:每頁顯示<input type="number" name='paginate' value="0">題
             </div>
 
             <?php
@@ -86,21 +86,19 @@ $qt=$_POST['qt'];
                                        問答題
                                     </label>
                         </div>
+                        <input type="hidden" name="subjects[<?=$i;?>][seq]" value="<?=$i;?>">
                     </section>
                     <section class="row">
                         <label class='col-2'>題目說明</label>
                         <div class="col-10">
-                            <input class="w-100" type="text" name="subjects[<?=$i;?>][desc
-        
-                            ]">
+                            <input class="w-100" type="text" name="subjects[<?=$i;?>][desc]">
                         </div>
                     </section>
                     <section class="options row">
 
                     </section>
                 </div>
-                <button class="del co
-                l-1 btn btn-danger" data-del="<?=$i;?>">刪除</button>
+                <button type="button" class="del col-1 btn btn-danger" data-del="<?=$i;?>">刪除</button>
             </div>
             <?php
         }

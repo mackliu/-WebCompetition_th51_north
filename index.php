@@ -12,9 +12,9 @@
 <h1 class="container text-center">問卷調查</h1>
 <div class="code-block container col-md-3 m-auto">
     <label for="code">您好！請輸入填寫問卷邀請碼：
-        <form action="quiz.php" method="post">
+        <form class="d-flex align-items-center" action="quiz.php" method="get">
             <input type="text" name="code" id="code">
-            <input type="submit" value="繼續">
+            <input class="btn btn-primary mx-2" type="submit" value="繼續">
         </form>
     </label>
 </div>

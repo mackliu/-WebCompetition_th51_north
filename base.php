@@ -137,4 +137,5 @@ function to($url){
 
 $Quiz=new DB("quizs");
 $Code=new DB("inv_codes");
+$Log=new DB("logs");
 ?>
