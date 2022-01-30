@@ -16,7 +16,7 @@
     </div>
     <div>
         <div class="container">
-            <fieldset class='my-5 mx-auto w-25'>
+            <fieldset class='my-5 mx-auto ' style="width:280px!important">
                 <legend>管理者登入</legend>
                 <form action="api/login.php" method="post">
                     <p>
