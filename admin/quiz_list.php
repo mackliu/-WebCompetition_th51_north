@@ -36,6 +36,7 @@
                 ?>
                     </div>
                     <div class="btns col-md-6" data-id="<?=$quiz['id'];?>">
+                        <button class="edit-quiz btn btn-sm btn-dark">編輯問卷</button>
                         <button class="stastic-quiz btn btn-sm btn-primary">統計結果</button>
                         <button class="detail-quiz btn btn-sm btn-info">查看問卷</button>
                         <button class="double-quiz btn btn-sm btn-warning">複製問卷</button>
@@ -49,28 +50,9 @@
             </ul>
         </div>
     </div>
+<div id="modal">
 
-<div class="modal fade" id="LogModal" tabindex="-1" role="dialog" aria-labelledby="LogModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="LogModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="height:500px;overflow:auto">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
 </div>
-
-
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.js"></script>
 </body>
@@ -78,6 +60,37 @@
 </html>
 
 <script>
+//編輯問卷功能
+$(".edit-quiz").on("click",(e)=>{
+    $.get("modal/edit_quiz.php",
+          {id:$(e.target).parent().data("id")},
+          (edit_modal)=>{
+              $("#modal").html(edit_modal)
+              $("#EditModal").modal("show");
+          })
+})
+
+//查詢回收問卷功能
+$(".detail-quiz").on("click",(e)=>{
+    $.get("modal/log_list.php",
+          {id:$(e.target).parent().data("id")},
+          (list_modal)=>{
+              $("#modal").html(list_modal)
+              $("#LogModal").modal("show");
+          })
+})
+
+
+//問卷輸出功能
+$(".output-quiz").on('click',(e)=>{
+    $.get("api/output_quiz.php",
+          {id:$(e.target).parent().data('id')},
+          (res)=>{
+              alert("已輸出問卷完成")
+          })
+})
+
+
 //刪除問卷功能
 $(".del-quiz").on('click', (e) => {
     let name = $(e.target).parent().siblings('.name').text();
@@ -89,24 +102,5 @@ $(".del-quiz").on('click', (e) => {
             $(e.target).parents("li").remove()
         })
     }
-})
-
-//問卷輸出功能
-$(".output-quiz").on('click',(e)=>{
-    $.get("api/output_quiz.php",
-          {id:$(e.target).parent().data('id')},
-          (res)=>{
-              alert("已輸出問卷完成")
-          })
-})
-
-//查詢問卷功能
-$(".detail-quiz").on("click",(e)=>{
-    $.get("api/get_log_list.php",
-          {id:$(e.target).parent().data("id")},
-          (list)=>{
-              $("#LogModal .modal-body").html(list)
-              $("#LogModal").modal("show");
-          })
 })
 </script>

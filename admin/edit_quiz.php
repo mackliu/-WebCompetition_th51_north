@@ -26,7 +26,8 @@ $qt=$_POST['qt'];
             <input type="hidden" name="name" value="<?=$name;?>">
             <div>
                 設定邀請碼:<input type="text" name='code'>
-                <input type="radio" name="inv_type" value="sigle" checked>單組 <input type="radio" name="codetype" value="many">多組
+                <input type="radio" name="inv_type" value="single" checked>單組 
+                <input type="radio" name="codetype" value="many">多組
             </div>
             <div>
                 問卷份數:<input type="number" name='qt' value="1">
