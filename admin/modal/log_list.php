@@ -47,6 +47,7 @@ $logs=$Log->all(['quiz_id'=>$id]);
 
 
 <script>
+//刪除單一問卷
 $(".del-log").on("click",function(){
     let logId=$(this).data('id');
     $.post("api/del_log.php",{id:logId},()=>{
@@ -54,5 +55,18 @@ $(".del-log").on("click",function(){
     })
 })
 
+//查看單份問卷內容
+$(".detail-log").on("click",function(){
+    let logId=$(this).data('id')
+        $("#LogModal").modal("hide")
+        $("#LogModal").on("hidden.bs.modal",()=>{
+            $("#LogModal").modal("dispose")
+            $.get("modal/log_detail.php",{id:logId},(log_detail)=>{
+                $("#modal").html(log_detail)
+                $("#LogDetail").modal("show")
+            })
+        })
+
+    })
 
 </script>

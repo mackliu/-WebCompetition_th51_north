@@ -77,6 +77,7 @@ $(".detail-quiz").on("click",(e)=>{
           (list_modal)=>{
               $("#modal").html(list_modal)
               $("#LogModal").modal("show");
+
           })
 })
 
