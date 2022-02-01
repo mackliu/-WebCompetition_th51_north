@@ -70,6 +70,11 @@ $(".edit-quiz").on("click",(e)=>{
           })
 })
 
+//問卷統計功能
+$(".stastic-quiz").on("click",(e)=>{
+    location.href=`stastic.php?id=${$(e.target).parent().data("id")}`
+})
+
 //查詢回收問卷功能
 $(".detail-quiz").on("click",(e)=>{
     $.get("modal/log_list.php",
