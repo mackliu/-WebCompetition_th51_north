@@ -39,7 +39,7 @@
                         <button class="edit-quiz btn btn-sm btn-dark">編輯問卷</button>
                         <button class="stastic-quiz btn btn-sm btn-primary">統計結果</button>
                         <button class="detail-quiz btn btn-sm btn-info">查看問卷</button>
-                        <button class="double-quiz btn btn-sm btn-warning">複製問卷</button>
+                        <button class="copy-quiz btn btn-sm btn-warning">複製問卷</button>
                         <button class="output-quiz btn btn-sm btn-success">問卷輸出</button>
                         <button class="del-quiz btn btn-sm btn-danger">刪除問卷</button>
                     </div>
@@ -83,6 +83,16 @@ $(".detail-quiz").on("click",(e)=>{
               $("#modal").html(list_modal)
               $("#LogModal").modal("show");
 
+          })
+})
+
+//複製問卷功能
+$(".copy-quiz").on("click",(e)=>{
+    $.get("modal/copy_quiz.php",
+          {id:$(e.target).parent().data('id')},
+          (copy_modal)=>{
+            $("#modal").html(copy_modal)
+            $("#CopyModal").modal("show")
           })
 })
 
