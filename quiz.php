@@ -1,5 +1,18 @@
 <?php include_once "base.php";
 
+$quiz_id=$Code->find(['code'=>$_GET['code']])['quiz_id'];
+$chk=$Log->math("count",'*',["quiz_id"=>$quiz_id]);
+
+$quiz_limit=$Quiz->find($quiz_id)['qt'];
+
+if($chk>=$quiz_limit){
+    echo "<script>";
+    echo "alert('問卷數量已足夠，感謝你的協助，請改輸入其他問卷邀請碼');";
+    echo "location.href='index.php'";
+    echo "</script>";
+    exit();
+}
+
 if(!isset($_SESSION['start'])){
     $_SESSION['start']=1;
     $_SESSION['ans']=[];
@@ -156,7 +169,7 @@ $_SESSION['id']=$id;
     </div>
 </form>
 </div>
-<script src="js/jquery.js"></script>
+<script src="js/jquery.js"></scrip>
 <script src="js/bootstrap.js"></script>
 </body>
 </html>

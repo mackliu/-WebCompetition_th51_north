@@ -97,7 +97,7 @@ class DB{
     }
 
     function math($type,$col,...$arg){
-        $sql="select $type(`$col`) from $this->table ";
+        $sql="select $type($col) from $this->table ";
 
         switch(count($arg)){
             case 1:
