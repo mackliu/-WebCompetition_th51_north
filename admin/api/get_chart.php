@@ -5,7 +5,7 @@ $logs = $Log->all(["quiz_id" => $_GET['id']]);
 $sub_id = $_GET['sub_id'];
 $subject = unserialize($quiz['subjects'])[$sub_id];
 $type = $subject['type'];
-
+//dd($subject);
 $labels=[];
 switch($type){
     case "tof":
@@ -16,7 +16,7 @@ switch($type){
     break;
     case "multiple":
         $labels=$subject['opt'];
-        if(isset($sub['other'])){
+        if(isset($subject['other'])){
             array_push($labels,'其他');
         }
     break;
